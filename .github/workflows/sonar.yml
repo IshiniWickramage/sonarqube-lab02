@@ -32,14 +32,12 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar 
  
       - name: Build with Maven
-        run: mvn -B verify 
-        
-      - name: SonarCloud Scan 
-        env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
-        run: | 
-          mvn sonar:sonar \ 
-            -Dsonar.projectKey=thathsaraniwib214209t_lab2 \ 
-            -Dsonar.organization=thathsaraniwib214209t \ 
-            -Dsonar.host.url=https://sonarcloud.io 
+      run: mvn -B verify - name: SonarCloud Scan 
+env: 
+GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
+run: | 
+mvn sonar:sonar \ 
+-Dsonar.projectKey=thathsaraniwib214209t_lab2 \ 
+-Dsonar.organization=thathsaraniwib214209t \ 
+-Dsonar.host.url=https://sonarcloud.io 
