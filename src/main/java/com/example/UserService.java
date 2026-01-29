@@ -38,4 +38,5 @@ String query =
 "DELETE FROM users WHERE name = '" + username + "'"; 
 st.execute(query); 
 } 
+
 }
